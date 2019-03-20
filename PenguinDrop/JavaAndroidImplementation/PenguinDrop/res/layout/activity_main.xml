@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}"
+    android:id="@+id/parent" >
+    
+	<LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/buttons">
+   		
+   		<Button
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/left_cannon_button" />
+	   	
+       	<Button
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/right_cannon_button" />
+                      
+    </LinearLayout>
+
+	<Button 
+        android:id="@+id/shoot" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:text="@string/cannon_shoot_button" 
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true" />
+	
+	<Button
+        android:id="@+id/restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/restart_button"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
+	 
+</RelativeLayout>

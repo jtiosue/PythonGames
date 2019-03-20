@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Penguin Drop</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="left_cannon_button">←←</string>
+    <string name="right_cannon_button">→→</string>
+    <string name="cannon_shoot_button">Shoot</string>
+    <string name="restart_button">Restart</string>
+
+</resources>
