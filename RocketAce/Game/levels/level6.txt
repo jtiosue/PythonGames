@@ -1,0 +1,38 @@
+#"#" indicates a comment.
+#KIND, COLOR, X0, Y0, X1, Y1, ...
+
+start, white, 10, 20, 30, 30
+end, green, 70, 80, 90, 70
+
+#Covers top, left, and bottom of end.
+line, yellow, 95, 80, 95, 69, 69, 69, 69, 81, 90, 81
+
+#diagonal lines
+line, yellow, 0, 50, 50, 6
+line, purple, 20, 60, 55, 95
+
+#horizontal lines
+line, purple, 47, 10, 90, 10
+line, purple, 95, 10, 100, 10
+line, purple, 35, 20, 45, 20
+line, purple, 50, 20, 100, 20
+line, purple, 25, 30, 70, 30
+line, purple, 75, 30, 100, 30
+line, purple, 20, 40, 100, 40
+line, purple, 1, 50, 95, 50
+line, purple, 5, 60, 100, 60
+
+#vertical lines
+line, purple, 20, 60, 20, 70
+line, purple, 20, 75, 20, 100
+line, purple, 60, 60, 60, 70
+line, purple, 60, 75, 60, 100
+line, purple, 70, 82, 70, 95
+
+arc, pink, 45, 70, 55, 80
+
+oval, dark grey, 50, 80, 60, 85
+
+polygon, orange, 22.5, 61, 41, 79, 41, 61
+polygon, orange, 0, 0, 30, 0, 0, 30
+

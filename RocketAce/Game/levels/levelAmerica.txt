@@ -1,0 +1,23 @@
+#"#" indicates a comment.
+#KIND, COLOR, X0, Y0, X1, Y1, ...
+
+#### American Flag ####
+
+start, orange, 0, 0, 10, 10
+end, green, 90, 90, 100, 100
+
+#blue portion
+rectangle, blue, 10, 10, 50, 50
+
+#stripes
+rectangle, red, 50, 10, 90, 20
+rectangle, white, 50, 20, 90, 30
+rectangle, red, 50, 30, 90, 40
+rectangle, white, 50, 40, 90, 50
+rectangle, red, 10, 50, 90, 60
+rectangle, white, 10, 60, 90, 70
+rectangle, red, 10, 70, 90, 80
+#rectangle, white, 10, 80, 90, 90
+
+#star
+polygon, white, 30, 10, 35, 20, 50, 22, 40, 30, 50, 50, 30, 40, 10, 50, 20, 30, 10, 22, 25, 20

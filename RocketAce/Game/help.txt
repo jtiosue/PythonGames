@@ -1,0 +1,32 @@
+How To Play
+
+You control a rocket (red oval) that must navigate
+from START to END without colliding with any
+obstacles or going off the screen.
+
+The player controls the rocket's thrusters.
+He/She has no direct control of the rocket's 
+velocity, but rather its acceleration.
+
+The vertical and horizontal scales in the lower
+left corner adjust the acceleration of the rocket
+in the respective direction. They can also be
+controlled with the arrow keys (i.e. <up>
+increases the rocket's acceleration in the up
+direction, and so on).
+
+To change the sensitivity of the arrow keys
+(how quickly the scales change when holding down
+the keys), click the "Settings" tab. Each time
+you select the Increase/Decrease Sensitivity
+button, it will increment how much the scale
+moves when the arrow keys are pressed by 0.1
+until it reaches a max/min value.
+
+To restart a level, press Enter/Return.
+
+To draw your own level, find the root directory
+(where this file is saved). From there, enter the
+folder titled "levels". To learn how to create
+levels, read "HowToWriteLevels.txt" and refer to 
+other level files as examples.

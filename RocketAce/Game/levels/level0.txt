@@ -1,0 +1,5 @@
+#"#" indicates a comment.
+#KIND, COLOR, X0, Y0, X1, Y1, ...
+
+start, white, 10, 20, 30, 30
+end, green, 70, 80, 90, 70

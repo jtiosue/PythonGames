@@ -1,0 +1,10 @@
+#Level number: %d
+
+# '#' indicates a commented/ignored line.
+
+# Valid Kinds:
+#	"oval", "line", "polygon", "arc", "rectangle", "start", "end"
+
+# Lines should be ordered as follows:
+#	KIND, COLOR, X0, Y0, X1, Y1, ...
+

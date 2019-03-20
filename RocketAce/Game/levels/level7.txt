@@ -1,0 +1,21 @@
+#Level number: 8
+
+# '#' indicates a commented/ignored line.
+
+# Valid Kinds:
+#	"oval", "line", "polygon", "arc", "rectangle", "start", "end"
+
+# Lines should be ordered as follows:
+#	KIND, COLOR, X0, Y0, X1, Y1, ...
+
+start, white, 45, 45, 55, 55
+end, green, 93, 93, 100, 100
+
+#border start
+#line, purple, 55, 45, 45, 45, 45, 55, 55, 55
+
+line, purple, 55, 45, 45, 45, 45, 55, 55, 55, 55, 55, 60, 55, 60, 35, 35, 35, 35, 65, 70, 65, 70, 25, 25, 25, 25, 75, 80, 75, 80, 15,  15, 15, 15, 85, 90, 85, 90, 5, 5, 5, 5, 95, 90, 95
+
+#border left edge of end
+#line, yellow, 93, 100, 93, 93
+rectangle, yellow, 90, 91, 93, 100

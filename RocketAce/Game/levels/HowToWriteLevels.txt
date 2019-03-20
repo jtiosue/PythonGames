@@ -1,0 +1,52 @@
+HOW TO WRITE LEVELS
+
+"#" indicates a commented line.
+Empty lines will be ignored.
+
+Lines should be ordered as follows:
+	KIND, COLOR, X0, Y0, X1, Y1, ...
+with element seperated by commas as shown.
+
+COLOR can be hexadecimal or written for 
+primary colors (green, blue, etc.).
+
+Valid KINDs are:
+oval, rectangle, line, polygon, arc, start, end.
+
+Both a start and an end point must be included.
+If there are multiple start/end points defined,
+the last one will be used (the furthest down
+in this file).
+
+For all but polygons, only X0, Y0, X1, Y1
+should be included. For polygons, include
+as many pairs of coordinates as necessary,
+each defining a vertex.
+
+For line obstacles, a default width is used.
+
+All coordinates and widths are in vw and vh
+format, meaning that the width and height scales
+are defined by an arbitrary 100 point scale.
+These vw's and vh's will be scaled in
+accordance with the screen size.
+
+Title of file must be "levelx.txt" where
+"x" is a level name not already in use.
+
+Once file is saved, it will immediately
+become available for play.
+
+EXAMPLES:
+
+#oval, blue, 10, 20, 20, 30
+
+#rectangle, green, 20, 30, 40, 50
+#line, yellow, 100, 100, 75, 75
+rectangle, red, 40, 10, 60, 90
+
+start, white, 10, 80, 30, 70
+end, green, 70, 80, 90, 70
+
+polygon, blue, 0, 0, 50, 0, 0, 50, 50, 50
+arc, orange, 30, 30, 80, 80

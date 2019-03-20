@@ -1,0 +1,22 @@
+#"#" indicates a comment.
+#KIND, COLOR, X0, Y0, X1, Y1, ...
+
+start, white, 45, 45, 55, 55
+end, green, 90, 90, 100, 100
+
+rectangle, orange, 55, 10, 65, 100
+rectangle, red, 30, 25, 45, 35
+rectangle, red, 45, 8, 55, 18
+
+line, purple, 55, 40, 10, 50
+line, yellow, 43, 45, 43, 90
+line, green, 10, 50, 10, 7
+line, green, 20, 47, 20, 30
+line, green, 20, 23, 20, 0
+line, green, 30, 38, 30, 0
+
+oval, red, 0, 60, 38, 80
+
+polygon, grey, 70, 20, 80, 20, 90, 25, 93, 25, 90, 30, 94, 50, 93, 85, 69, 90
+
+arc, pink, 60, 7, 90, 17
