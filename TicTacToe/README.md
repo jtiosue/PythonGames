@@ -1,1 +1,1 @@
-
+Play against the computer, where the computer calculates the next move by recursing through the future. Essentially we have a function that picks the optimal next optimal move (gives the best result - a win - in the least amount of time), and we predict the future by saying that all future moves will also be optimal. So if f(1) picks the first optimal move for the computer, then it will assume that the player makes the move f(1), and etc.
