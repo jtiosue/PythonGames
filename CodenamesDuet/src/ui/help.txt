@@ -1,0 +1,6 @@
+green means correct
+black means game over
+red means you've already incorrectly selected the word
+yellow means your partner has already incorrectly selected the word
+
+There are 9 greens and 3 blacks on each side. You and your partner share 3 greens. One black on one side is a black, green, and tan on the other side.

@@ -1,0 +1,1 @@
+from .words import random_words
