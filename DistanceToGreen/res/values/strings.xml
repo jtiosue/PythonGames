@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Distance to Green</string>
+    <string name="pinHeight">Actual Pin Height (in feet)</string>
+	<string name="holdDistance">Hold Distance (in inches)</string>
+	<string name="instructions">Instructions</string>
+	<color name="background">#99ff99</color>
+	<color name="pinHeight">#0066ff</color>
+	<color name="holdDistance">#ff0000</color>
+	<color name="font">#000000</color>
+	
+	<string name="adPlaceHolder">
+	    Adjust <b>Hold Distance</b> as best for you.
+	    \n
+		See <i>Instructions</i> for more information.
+	</string>
+	
+	<string name="full_instructions">
+	    \tHold the phone at eye level at the distance designated by
+	    <b>Hold Distance</b> away from your eyes. Adjust the two
+	    horizontal bars so that the flagpost just fits between them by 
+	    moving the golf balls. I.e. position the actual flagpost in 
+	    between the two bars like the blue flagpost on screen is positioned.
+	    \n\n
+	    \tYou can change the <b>Actual Pin Height</b> and <b>Hold Distance</b>
+	    parameters as needed. If you do not know the exact height that 
+	    the flagposts are at your course, use the default value provided.
+	</string>
+    
+</resources>
