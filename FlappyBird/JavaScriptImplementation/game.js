@@ -10,9 +10,6 @@ var LINE_WIDTH = 2.5;
 var FREQ = 60;
 var FONTSIZE = 30;
 
-var JUMP = 32;  // j
-var RESTART = 13;  // return
-
 
 function scaling_factor(screen) {
     return [screen[0]/100.0, screen[1]/100.0];
@@ -137,9 +134,11 @@ class Home {
         this.player = new Player(this.screen);
         this.player.draw(this.can);
         this.obstacles = [];
+        this.running = true;
     }
     stop(interval) {
         clearInterval(interval);
+        this.running = false;
     }
     click() {
         this.player.click();
@@ -189,15 +188,14 @@ function play(screen) {
     var ctx = canvas.getContext('2d');
     var main = new Home(ctx, screen);
     
-    window.addEventListener("keydown", function(event) {
-        if (event.keyCode == JUMP) {
+    canvas.addEventListener("click", function(event) {
+        if(main.running)
             main.click();
-        } else if (event.keyCode == RESTART) {
-            main.stop(interval);
+        else {
             main.restart();
             interval = setInterval(function() {main.update(interval);}, SPEED);
         }
-    })
+    });
     
     var interval = setInterval(function() {main.update(interval);}, SPEED);
 }
