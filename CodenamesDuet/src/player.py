@@ -7,6 +7,7 @@ from ui import Display
 def recv(clientsocket, display):
     while True:
         msg = clientsocket.recv(8192).decode()
+        print('\a')
         display.recv(msg)
         
 def create_clientsocket():
