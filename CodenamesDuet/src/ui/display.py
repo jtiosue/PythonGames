@@ -1,5 +1,16 @@
 import tkinter as tk
-import os
+import tkinter.font
+import tkinter.messagebox
+
+
+def _help(cluehistory=False):
+    with open("ui/help.txt") as f:
+        text = f.read()
+
+    if cluehistory:
+        text = "CLUE HISTORY:\n\n" + "\n".join(cluehistory) + "\n\nINSTRUCTIONS:\n\n" + text
+
+    tk.messagebox.showinfo(title="Help", message=text)
 
 
 class Display(tk.Frame):
@@ -10,6 +21,7 @@ class Display(tk.Frame):
         self._clientsocket = clientsocket
         
         self._sent_clue, self._recieved_clue = False, False
+        self._clue_history = []
         
         options = dict(width=12, height=3)
         
@@ -24,14 +36,22 @@ class Display(tk.Frame):
         master.bind("<Return>", lambda e: self._submit_button.invoke())            
             
         self._word_buttons = [
-            tk.Button(self, **options, 
+            tk.Button(self, **options,
                       command=lambda x=i: self._choose_word(x))
             for i in range(25)
         ]
         
-        self._turns_remaining_button = tk.Button(
-            self, text="turns", **options, state=tk.DISABLED
+        self._turns_remaining_button = tk.Label(
+            self, text="TURNS", **options,
+            font=tk.font.Font(size=16, weight="bold")
         )
+
+        tk.Button(
+            self, text="Help", **options, 
+            command=lambda: _help(self._clue_history)
+        ).grid(row=4, column=5)
+
+        options["width"] = 3
         
         self._grid_buttons = [tk.Button(self, **options, 
                                         state=tk.DISABLED) for _ in range(25)]
@@ -42,20 +62,16 @@ class Display(tk.Frame):
                 i = 5*r + c
                 self._word_buttons[i].grid(row=r, column=c)
                 self._grid_buttons[i].grid(row=r, column=c+6)
-                #space
-                tk.Button(self, **options, bg="white", 
-                          state=tk.DISABLED).grid(row=r, column=5)
-                tk.Button(self, **options, bg="white", 
-                          state=tk.DISABLED).grid(row=r, column=11)
+            # #space
+            # tk.Button(self, **options, highlightbackground="white", highlightthickness=5,
+            #           state=tk.DISABLED).grid(row=r, column=5)
+            # tk.Button(self, **options, highlightbackground="white", highlightthickness=5,
+            #           state=tk.DISABLED).grid(row=r, column=11)
         
-        self._turns_remaining_button.grid(row=0, column=12)
-        self._pass_button.grid(row=1, column=12)
-        self._word_entry.grid(row=2, column=12)
-        self._submit_button.grid(row=3, column=12)
-        tk.Button(
-            self, text="Help", **options, 
-            command=lambda: os.startfile("ui\help.txt")
-        ).grid(row=4, column=12)
+        self._turns_remaining_button.grid(row=0, column=5)
+        self._pass_button.grid(row=1, column=5)
+        self._word_entry.grid(row=2, column=5)
+        self._submit_button.grid(row=3, column=5)
         
         self._master = master
         master.title("Awaiting clue from other player")
@@ -68,8 +84,11 @@ class Display(tk.Frame):
         if (not self._sent_clue and 
             self._game["player"] != self._game["turn"] and
             self._game["game_state"] == "ongoing"):
+
+            clue = self._word_entry.get()
             
-            self._send("2" + self._word_entry.get())
+            self._send("2" + clue)
+            self._clue_history.append("SENT: " + clue)
             
             self._master.title("Awaiting selections from other player")
             self._sent_clue = True
@@ -81,6 +100,7 @@ class Display(tk.Frame):
             self._master.title(
                 "Recieved clue '%s', your turn to make selections" % clue
             )
+            self._clue_history.append("RECIEVED: " + clue)
     
     def _entry(self, clue):
         self._word_entry.delete(0, tk.END)
@@ -124,7 +144,7 @@ class Display(tk.Frame):
         
             
         self._turns_remaining_button.configure(
-                text="turns: %d" % self._game["turns_remaining"]
+                text="TURNS: %d" % self._game["turns_remaining"]
         )
         
         for i in range(25):
@@ -132,13 +152,15 @@ class Display(tk.Frame):
             if cover == "b": color = "black"
             elif cover == "g": color = "green"
             elif cover == str(self._game["player"]): color = "red"
+            elif cover == "3": color = "blue" # cover = both players
             elif cover != "": color = "yellow" # cover = opposite player
             else: color = "tan"
-            self._word_buttons[i].configure(bg=color)
+            self._word_buttons[i].configure(highlightbackground=color, highlightthickness=5)
         
     def _create_game(self, d):
         self._submit_button.configure(text="Submit", command=self._send_clue)
         self._sent_clue, self._recieved_clue = False, False
+        self._clue_history = []
         
         self._update_game(d)
         
@@ -149,7 +171,7 @@ class Display(tk.Frame):
             elif m == "t": color = "tan"
             elif m == "b": color = "black"
             else: color = "red"
-            self._grid_buttons[i].configure(bg=color)
+            self._grid_buttons[i].configure(highlightbackground=color, highlightthickness=5)
             
             self._word_buttons[i].configure(text=self._game["words"][i])
     
