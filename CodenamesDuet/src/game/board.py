@@ -27,10 +27,16 @@ class Board:
         self._cover[self._get_index(row, col)] = "g"
         
     def p1_incorrect_guess(self, row, col):
-        self._cover[self._get_index(row, col)] = "1"
+        if self._cover[self._get_index(row, col)] == "2":
+            self._cover[self._get_index(row, col)] = "3"
+        else:
+            self._cover[self._get_index(row, col)] = "1"
         
     def p2_incorrect_guess(self, row, col):
-        self._cover[self._get_index(row, col)] = "2"
+        if self._cover[self._get_index(row, col)] == "1":
+            self._cover[self._get_index(row, col)] = "3"
+        else:
+            self._cover[self._get_index(row, col)] = "2"
         
     def black_guess(self, row, col):
         self._cover[self._get_index(row, col)] = "b"
