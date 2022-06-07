@@ -22,7 +22,7 @@ class Game:
         
         # see if it's already been picked
         co = self._board.get_cover(r, c)
-        if co and co in "bg" + str(self._turn): return
+        if co and co in "bg3" + str(self._turn): return
             
         if self._turn == 1: color = self._grid.get_p2_color(r, c)
         else: color = self._grid.get_p1_color(r, c)
