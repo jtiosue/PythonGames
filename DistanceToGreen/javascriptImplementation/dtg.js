@@ -1,5 +1,5 @@
 function getDPI() {
-  return 326.;
+  return parseFloat(document.getElementById("dpi").value);
 }
 
 
