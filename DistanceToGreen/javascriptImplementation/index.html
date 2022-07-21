@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Distance to Green</title>
+		<script src="dtg.js"></script>
+	</head>
+	<body>
+		<div><h1 align="center">Distance to Green</h1></div>
+		<div><p>Hold phone away from face and line the bars with the top and bottom of the pin.</p></div>
+		<div><h2 id="distance"></h2></div>
+		
+		<div align="center">
+			<canvas id="canvas"></canvas>
+		</div>
+
+		<div><form>
+			Hold distance (in inches).<input type="text" id="holdDistance" value="18"><br>
+			Pin height (in feet).<input type="text" id="pinHeight" value="7"><br>
+		</form></div>
+
+
+		<div id="dpi" style="height: 1in; width: 1in; left: 100%; position: fixed; top: 100%;"></div>
+		
+	</body>
+</html>
