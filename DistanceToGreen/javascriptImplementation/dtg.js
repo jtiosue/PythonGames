@@ -1,5 +1,5 @@
 function getDPI() {
-  return document.getElementById('dpi').offsetHeight;
+  return 326.;
 }
 
 
