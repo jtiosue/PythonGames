@@ -47,7 +47,8 @@ class Home {
 
   drag(event) {
     // if (this.bottom <= event.offsetY && event.offsetY <= this.bottom+20) {
-      this.update(event.offsetY-10);
+      // this.update(event.offsetY-10);
+    this.update(event.pageY-10);
     // }
   }
 
@@ -67,7 +68,7 @@ function main(screen) {
     // canvas.addEventListener("mouseup", function(event) {
     //  mousedown = false;
     // });
-    canvas.addEventListener("mousemove", function(event) {
+    canvas.addEventListener("touchmove", function(event) {
       if (mousedown) {home.drag(event);}
     });
 }
