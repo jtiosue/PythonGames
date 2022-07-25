@@ -45,11 +45,8 @@ class Home {
     this.canvas.clearRect(-100, -100, this.screen[0]+100, this.screen[1]+100);
   }
 
-  drag(event) {
-    // if (this.bottom <= event.offsetY && event.offsetY <= this.bottom+20) {
-      // this.update(event.offsetY-10);
-    this.update(event.pageY-10);
-    // }
+  drag(location) {
+    this.update(location-10);
   }
 
 }
@@ -61,17 +58,14 @@ function main(screen) {
     var ctx = canvas.getContext('2d');
     var home = new Home(ctx, screen);
 
-    var mousedown = false;
-    // canvas.addEventListener("mousedown", function(event) {
-      mousedown = true;
-    // });
-    // canvas.addEventListener("mouseup", function(event) {
-    //  mousedown = false;
-    // });
     canvas.addEventListener("touchmove", function(event) {
       event.preventDefault();
-      if (mousedown) {home.drag(event);}
+      home.drag(event.offsetY-10);
     }, { passive: false });
+    
+    canvas.addEventListener("mousemove", function(event) {
+      home.drag(event.offsetY-10);
+    });
 }
 
 window.onload = function() {
