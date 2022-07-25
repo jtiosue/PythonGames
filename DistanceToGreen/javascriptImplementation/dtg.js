@@ -69,8 +69,9 @@ function main(screen) {
     //  mousedown = false;
     // });
     canvas.addEventListener("touchmove", function(event) {
+      event.preventDefault();
       if (mousedown) {home.drag(event);}
-    });
+    }, { passive: false });
 }
 
 window.onload = function() {
