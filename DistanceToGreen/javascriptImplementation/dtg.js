@@ -46,9 +46,9 @@ class Home {
   }
 
   drag(event) {
-    if (this.bottom <= event.offsetY && event.offsetY <= this.bottom+20) {
+    // if (this.bottom <= event.offsetY && event.offsetY <= this.bottom+20) {
       this.update(event.offsetY-10);
-    }
+    // }
   }
 
 }
@@ -61,12 +61,12 @@ function main(screen) {
     var home = new Home(ctx, screen);
 
     var mousedown = false;
-    canvas.addEventListener("mousedown", function(event) {
+    // canvas.addEventListener("mousedown", function(event) {
       mousedown = true;
-    });
-    canvas.addEventListener("mouseup", function(event) {
-      mousedown = false;
-    });
+    // });
+    // canvas.addEventListener("mouseup", function(event) {
+    //  mousedown = false;
+    // });
     canvas.addEventListener("mousemove", function(event) {
       if (mousedown) {home.drag(event);}
     });
