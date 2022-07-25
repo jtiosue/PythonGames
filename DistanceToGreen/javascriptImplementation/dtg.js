@@ -54,7 +54,6 @@ class Home {
 function main(screen) {
     var canvas = document.getElementById("canvas");
     canvas.width = screen[0]; canvas.height = screen[1];
-    canvas.style = "background-color: #e6f9ff;";
     var ctx = canvas.getContext('2d');
     var home = new Home(ctx, screen);
 
