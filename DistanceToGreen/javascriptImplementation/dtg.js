@@ -24,14 +24,15 @@ class Home {
   constructor(canvas, screen){
     this.canvas = canvas;
     this.screen = screen;
-    this.update(100);
+    this.bottom = 100;
+    this.update(this.bottom);
   }
 
   update(bottom) {
     this.bottom = bottom;
     this.clearCanvas();
     this.canvas.fillRect(0, 0, this.screen[0], 20);
-    this.canvas.fillRect(0, bottom, this.screen[0], 10);
+    this.canvas.fillRect(0, bottom, this.screen[0], 20);
     this.updateDistance(bottom);
   }
 
@@ -44,8 +45,10 @@ class Home {
     this.canvas.clearRect(-100, -100, this.screen[0]+100, this.screen[1]+100);
   }
 
-  click(event) {
-    this.update(event.offsetY);
+  drag(event) {
+    if (this.bottom <= event.offsetY && event.offsetY <= this.bottom+20) {
+      this.update(event.offsetY-10);
+    }
   }
 
 }
@@ -57,7 +60,16 @@ function main(screen) {
     var ctx = canvas.getContext('2d');
     var home = new Home(ctx, screen);
 
-    canvas.addEventListener("click", function(event) {home.click(event);});
+    var mousedown = false;
+    canvas.addEventListener("mousedown", function(event) {
+      mousedown = true;
+    });
+    canvas.addEventListener("mouseup", function(event) {
+      mousedown = false;
+    });
+    canvas.addEventListener("mousemove", function(event) {
+      if (mousedown) {home.drag(event);}
+    });
 }
 
 window.onload = function() {
