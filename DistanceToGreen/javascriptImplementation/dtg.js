@@ -58,9 +58,10 @@ function main(screen) {
     var ctx = canvas.getContext('2d');
     var home = new Home(ctx, screen);
 
+    var offset = canvas.offset();
     canvas.addEventListener("touchmove", function(event) {
       event.preventDefault();
-      home.drag(event.offsetY-10);
+      home.drag(event.pageY-offset.top-10);
     }, { passive: false });
     
     canvas.addEventListener("mousemove", function(event) {
